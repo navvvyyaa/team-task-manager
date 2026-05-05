@@ -23,8 +23,8 @@ function Dashboard() {
   const fetchData = async () => {
     try {
       const [tasksRes, projectsRes] = await Promise.all([
-        axios.get('/api/tasks', authHeader),
-        axios.get('/api/projects', authHeader)
+        axios.get('https://team-task-manager-production-926d.up.railway.app/api/tasks', authHeader),
+        axios.get('https://team-task-manager-production-926d.up.railway.app/api/projects', authHeader)
       ])
       setTasks(tasksRes.data)
       setProjects(projectsRes.data)
@@ -44,7 +44,7 @@ function Dashboard() {
     e.preventDefault()
     setProjectError('')
     try {
-      await axios.post('/api/projects', newProject, authHeader)
+      await axios.post('https://team-task-manager-production-926d.up.railway.app/api/projects', newProject, authHeader)
       setNewProject({ name: '', description: '' })
       setShowProjectForm(false)
       fetchData() // refresh

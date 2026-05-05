@@ -15,7 +15,7 @@ function Login() {
     setLoading(true)
 
     try {
-      const res = await axios.post('/api/auth/login', { email, password })
+      const res = await axios.post('https://team-task-manager-production-926d.up.railway.app/api/auth/login',{ email, password })
       // store token and user info
       localStorage.setItem('token', res.data.token)
       localStorage.setItem('user', JSON.stringify(res.data.user))

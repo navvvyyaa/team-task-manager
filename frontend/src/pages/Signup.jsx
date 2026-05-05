@@ -18,7 +18,7 @@ function Signup() {
     setLoading(true)
 
     try {
-      const res = await axios.post('/api/auth/signup', form)
+      const res = await axios.post('https://team-task-manager-production-926d.up.railway.app/api/auth/signup',form)
       localStorage.setItem('token', res.data.token)
       localStorage.setItem('user', JSON.stringify(res.data.user))
       navigate('/dashboard')
